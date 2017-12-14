@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories>
+  <repository>    <id>KettleFileRepository</id>
+    <name>pentahorepo</name>
+    <description>Pentaho  Repo</description>
+    <base_directory>&#x2f;home&#x2f;pentaho&#x2f;pentahorepo</base_directory>
+    <read_only>N</read_only>
+    <hides_hidden_files>N</hides_hidden_files>
+  </repository>  </repositories>

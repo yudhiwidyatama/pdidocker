@@ -1,0 +1,11 @@
+pdi:
+    volumes:
+     - ~/pentahorepo:/home/pentaho/pentahorepo
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - ~/pdidocker/dotkettle:/home/pentaho/data-integration/.kettle
+     - ~/phpdocker/public/isms/comm:/home/pentaho/comm
+     - ~/phpdocker/public/isms/mobility:/home/pentaho/mobility
+    image: y_widyatama:pdi
+    container_name: pdiisms
+    external_links:
+     - maria

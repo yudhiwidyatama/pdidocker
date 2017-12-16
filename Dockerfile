@@ -59,6 +59,8 @@ RUN echo "Asia/Hong_Kong" > /etc/timezone
 
 RUN dpkg-reconfigure -f noninteractive tzdata
 
+RUN chmod og+wx $PENTAHO_HOME/data-integration
+
 USER pentaho
 
 RUN curl -L -o $PENTAHO_HOME/data-integration/lib/mysql-connector-java-5.1.40.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar
@@ -75,8 +77,15 @@ EXPOSE ${CARTE_PORT}
 # We set it to KETTLE_HOME so we can start carte easily
 WORKDIR $KETTLE_HOME
 
+RUN mkdir $PENTAHO_HOME/s2i
+
+COPY s2i/* $PENTAHO_HOME/s2i/
+
+USER 999
 
 ENTRYPOINT ["../scripts/docker-entrypoint.sh"]
+
+LABEL io.openshift.s2i.scripts-url="image:///home/pentaho/s2i"
 
 # Run Carte - these parameters are passed to the entrypoint
 CMD ["carte.sh", "carte.config.xml"]

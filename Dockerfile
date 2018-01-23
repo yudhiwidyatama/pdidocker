@@ -61,9 +61,14 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 RUN chmod og+wx $PENTAHO_HOME/data-integration
 
+RUN chmod og+wx $PENTAHO_HOME/data-integration/lib
+
 USER pentaho
 
 RUN curl -L -o $PENTAHO_HOME/data-integration/lib/mysql-connector-java-5.1.40.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar
+
+COPY nzjdbc.jar $PENTAHO_HOME/data-integration/lib/nzjdbc.jar
+
 # We can only add KETTLE_HOME to the PATH variable now
 # as the path gets eveluated - so it must already exist
 ENV KETTLE_HOME=$PENTAHO_HOME/data-integration \

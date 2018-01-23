@@ -1,3 +1,4 @@
 #!/bin/bash
 
 echo 'assembling'
+cp /tmp/src/driver/* $PENTAHO_HOME/data-integration/lib/

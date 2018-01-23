@@ -8,6 +8,8 @@ if [ "$carte" = 'carte.sh' ]; then
   # echo "$KETTLE_HOME/carte.config.xml"
   # echo "$PENTAHO_HOME"
   if [ ! -f "$KETTLE_HOME/carte.config.xml" ]; then
+    mkdir $PENTAHO_HOME/data-integration/.kettle
+    cp  /tmp/src/repositories.xml $PENTAHO_HOME/data-integration/.kettle/repositories.xml
     # Set variables to defaults if they are not already set
     : ${CARTE_NAME:=carte-server}
     : ${CARTE_NETWORK_INTERFACE:=eth0}

@@ -86,8 +86,6 @@ EXPOSE ${CARTE_PORT}
 WORKDIR $KETTLE_HOME
 
 RUN mkdir $PENTAHO_HOME/s2i
-RUN mkdir /tmp/home
-ENV HOME=/tmp/home
 
 COPY s2i/* $PENTAHO_HOME/s2i/
 

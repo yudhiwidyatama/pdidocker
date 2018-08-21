@@ -3,7 +3,7 @@
 mkdir /tmp/home
 touch /tmp/home/.Xauthority
 # if [ -z ${REPO_RW+x} ]; then echo "REPO_RW is unset"; else chmod -R o+w /tmp/src/; fi
-if [ -z ${MAGIC_COOKIE+x} ] then echo "No magic cookie \n"; else HOME=/tmp/home xauth add ${DISPLAY} MIT-MAGIC-COOKIE-1 ${MAGIC_COOKIE}; fi;
+if [ -z ${MAGIC_COOKIE+x} ]; then echo "No magic cookie \n"; else HOME=/tmp/home xauth add ${DISPLAY} MIT-MAGIC-COOKIE-1 ${MAGIC_COOKIE}; fi;
 set -e
 : ${carte:=carte.sh}
 echo "Carte = $carte"

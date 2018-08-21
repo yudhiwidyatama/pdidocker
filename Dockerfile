@@ -38,7 +38,8 @@ RUN /usr/bin/wget \
 
 USER root
 
-RUN apt-get update && apt-get install -y libgtk2.0-0 xauth x11-apps
+RUN apt-get update && apt-get install -y libgtk2.0-0 xauth x11-apps \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 RUN apt-get update \
     && apt-get -y --no-install-recommends install php5-cli \
@@ -68,6 +69,8 @@ USER pentaho
 RUN curl -L -o $PENTAHO_HOME/data-integration/lib/mysql-connector-java-5.1.40.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar
 
 COPY nzjdbc.jar $PENTAHO_HOME/data-integration/lib/nzjdbc.jar
+COPY sapjco3.jar $PENTAHO_HOME/data-integration/lib/sapjco3.jar
+COPY libsapjco3.so $PENTAHO_HOME/data-integration/lib/libsapjco3.so
 
 # We can only add KETTLE_HOME to the PATH variable now
 # as the path gets eveluated - so it must already exist
@@ -83,6 +86,8 @@ EXPOSE ${CARTE_PORT}
 WORKDIR $KETTLE_HOME
 
 RUN mkdir $PENTAHO_HOME/s2i
+RUN mkdir /tmp/home
+ENV HOME=/tmp/home
 
 COPY s2i/* $PENTAHO_HOME/s2i/
 

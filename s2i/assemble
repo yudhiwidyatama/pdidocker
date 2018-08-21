@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo 'assembling'
+echo "assembling\n"
 cp /tmp/src/driver/* $PENTAHO_HOME/data-integration/lib/
+if [ -z ${REPO_RW+x} ]; then echo "REPO_RW is unset"; else chmod -R o+w /tmp/src/; fi

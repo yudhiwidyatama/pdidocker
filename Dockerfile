@@ -56,7 +56,7 @@ RUN apt-get update \
 
 RUN usermod -a -G www-data pentaho
 
-RUN echo "Asia/Hong_Kong" > /etc/timezone
+RUN echo "Asia/Jakarta" > /etc/timezone
 
 RUN dpkg-reconfigure -f noninteractive tzdata
 

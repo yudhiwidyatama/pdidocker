@@ -24,6 +24,8 @@ COPY docker-entrypoint.sh $PENTAHO_HOME/scripts/
 
 COPY jessie-backports.list /etc/apt/sources.list.d/
 
+COPY disable-validuntil /etc/apt/apt.conf.d/
+
 RUN chown -R pentaho:pentaho $PENTAHO_HOME && \ 
  chmod +x $PENTAHO_HOME/scripts/docker-entrypoint.sh
 

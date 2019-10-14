@@ -3,8 +3,8 @@ FROM java:8-jre
 MAINTAINER Yudhi Widyatama
 
 # Set required environment vars
-ENV PDI_RELEASE=6.0 \
-    PDI_VERSION=6.0.1.0-386 \
+ENV PDI_RELEASE=6.1 \
+    PDI_VERSION=6.1.0.1-196 \
     CARTE_PORT=8181 \
     PENTAHO_JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     PENTAHO_HOME=/home/pentaho

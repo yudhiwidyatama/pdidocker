@@ -22,6 +22,8 @@ COPY carte-*.config.xml $PENTAHO_HOME/templates/
 
 COPY docker-entrypoint.sh $PENTAHO_HOME/scripts/
 
+COPY jessie-backports.list /etc/apt/sources.list.d/
+
 RUN chown -R pentaho:pentaho $PENTAHO_HOME && \ 
  chmod +x $PENTAHO_HOME/scripts/docker-entrypoint.sh
 
